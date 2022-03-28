@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 	"strings"
 	"time"
-	path2 "path"
+
 )
 
 const (
@@ -53,7 +53,7 @@ func getFilelist(path string) {
 			fmt.Printf(f.Name())
 
 			var fileSuffix string
-			fileSuffix = path2.Ext(f.Name()) //获取文件后缀
+			fileSuffix = filepath.Ext(f.Name()) //获取文件后缀
 
 			if strings.Compare(fileSuffix, ".log") == 0 {
 				if err := os.Remove(path); err != nil {
@@ -74,6 +74,3 @@ func getFilelist(path string) {
 	}
 }
 
-func Ext(s string) {
-	panic("unimplemented")
-}
